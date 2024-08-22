@@ -17,4 +17,4 @@ jobs:
 
     - name: Send notification to Microsoft Teams 
       run: | 
-       curl -s -X POST ${{ secrets.TEAMS_WEBHOOK_URL }} -H 'Content-Type: application/json' -d '{ "text": "GitHub Actions: A new push has been made to the main branch." }' 
+       curl -s -X POST ${{ secrets.MS_TEAMS_WEBHOOK_URI }} -H 'Content-Type: application/json' -d '{ "text": "GitHub Actions: A new push has been made to the main branch." }' 
