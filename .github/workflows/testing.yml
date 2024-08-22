@@ -14,3 +14,7 @@ jobs:
       uses: rafal-slowik/gh-action-msteams@master
       with:
         webhook_uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
+
+    - name: Send notification to Microsoft Teams 
+      run: | 
+       curl -H 'Content-Type: application/json' -d '{ "text": "GitHub Actions: A new push has been made to the main branch." }' ${{ secrets.TEAMS_WEBHOOK_URL }}
