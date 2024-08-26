@@ -17,7 +17,7 @@ jobs:
 
       - name: Check for Changes in core-customize
         run: |
-          if [[ $(git diff --name-only --diff-filter=ACMPR origin/main) =~ backend/ ]]; then
+          if [[ $(git diff --name-only --diff-filter=ACMR origin/main) =~ backend/ ]]; then
             echo "Changes detected in backend folder"
           else
             echo "No changes detected in backend folder"
