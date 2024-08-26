@@ -1,1 +1,27 @@
+name: Conditional trigger
+ 
+on:
+  pull_request:
+    types: [opened, synchronize, edited, closed]
+    paths:
+      - 'backend/**'
 
+jobs:
+  sonarqube_scan_be:
+    runs-on: ubuntu-latest
+    permissions: read-all
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check for Changes in core-customize
+        run: |
+          if [[ $(git diff --name-only --diff-filter=ACMPR origin/main) =~ backend/ ]]; then
+            echo "Changes detected in backend folder"
+          else
+            echo "No changes detected in backend folder"
+            exit 1
+          fi
+      - name: Printing hello world
+        run: echo "hello world"
