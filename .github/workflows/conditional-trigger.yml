@@ -4,8 +4,7 @@ env:
  BRANCH_NAME: ${{ github.head_ref || github.ref_name }} 
  
 on:
-  pull_request:
-    types: [opened, synchronize, edited, closed]
+  push:
     paths:
       - 'backend/**'
 
@@ -20,15 +19,5 @@ jobs:
         with:
          depth: 0
 
-      - name: Check for Changes in core-customize
-        run: |
-          git branch -a
-          git reset -- HEAD~1
-          if [[ $(git diff --name-only --diff-filter=ACMR ${{ env.BRANCH_NAME }}) =~ backend/ ]]; then
-            echo "Changes detected in backend folder"
-          else
-            echo "No changes detected in backend folder"
-            exit 1
-          fi
       - name: Printing hello world
         run: echo "hello world"
