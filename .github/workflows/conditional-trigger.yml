@@ -17,7 +17,8 @@ jobs:
 
       - name: Check for Changes in core-customize
         run: |
-          if [[ $(git diff --name-only --diff-filter=ACMR origin/main) =~ backend/ ]]; then
+          branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}
+          if [[ $(git diff --name-only --diff-filter=ACMR $branch) =~ backend/ ]]; then
             echo "Changes detected in backend folder"
           else
             echo "No changes detected in backend folder"
