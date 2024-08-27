@@ -7,7 +7,8 @@ on:
   push:
     paths:
       - 'backend/**'
-   
+  pull_request:
+     types: [opened]
 jobs:
   sonarqube_scan_be:
     runs-on: ubuntu-latest
