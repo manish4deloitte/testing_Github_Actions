@@ -1,0 +1,21 @@
+name: Conditional trigger for BE 
+
+on:
+  push:
+    paths:
+      - 'backend/**'
+  pull_request:
+     types: [opened]
+jobs:
+  sonarqube_scan_be:
+    runs-on: ubuntu-latest
+    permissions: read-all
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Printing backend file
+        run: echo backend/test.txt
+      - name: Printing hello world
+        run: echo "hello world"
