@@ -17,13 +17,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        with:
-         fetch-depth: 1
 
       - name: Check for Changes in core-customize
         run: |
           git branch -a
-          git checkout remotes/origin/${{ env.BRANCH_NAME }}
+          git reset -- HEAD~1
           if [[ $(git diff --name-only --diff-filter=ACMR ${{ env.BRANCH_NAME }}) =~ backend/ ]]; then
             echo "Changes detected in backend folder"
           else
