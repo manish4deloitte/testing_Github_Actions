@@ -11,7 +11,7 @@ jobs:
   sonarqube_scan_be:
     runs-on: ubuntu-latest
     if: |
-     ${{ github.event.pull_request.head.ref =~ ^refs/heads/backend.* }}
+     ${{ github.event.pull_request.head.ref == ^refs/heads/backend.* }}
     permissions: read-all
 
     steps:
