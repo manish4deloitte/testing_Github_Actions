@@ -15,7 +15,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         
+      - name: Check if PR is available
+        run: |
+          if [[ -z "${GITHUB_EVENT_NAME}" || "${GITHUB_EVENT_NAME}" != "pull_request" ]]; then
+            echo "PR is not available, printing backend file contents"
+            cat backend/test.txt
+            exit 1
+          fi
       - name: Printing backend file
-        run: echo backend/test.txt
+        run: cat backend/test.txt
       - name: Printing hello world
         run: echo "hello world"
