@@ -4,8 +4,9 @@ env:
  BRANCH_NAME: ${{ github.head_ref || github.ref_name }} 
  
 on:
-  push:
-    paths:
+ pull_request:
+   types: [opened, synchronize]
+   paths:
       - 'backend/**'
 
 jobs:
