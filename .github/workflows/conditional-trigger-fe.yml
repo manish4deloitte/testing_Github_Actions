@@ -1,12 +1,9 @@
-name: Conditional trigger
+name: Conditional trigger for FE
 
-env:
- BRANCH_NAME: ${{ github.head_ref || github.ref_name }} 
- 
 on:
   push:
     paths:
-      - 'backend/**'
+      - 'frontend/**'
   pull_request:
      types: [opened]
 jobs:
@@ -17,8 +14,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        with:
-         depth: 0
-
+        
+      - name: Printing frontend file
+        run: echo frontend/test.txt
       - name: Printing hello world
         run: echo "hello world"
