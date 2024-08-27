@@ -4,8 +4,12 @@ env:
  BRANCH_NAME: ${{ github.head_ref || github.ref_name }} 
  
 on:
- pull_request:
-   types: [opened, synchronize]
+  push:
+  pull_request:
+    # Run only on changes on these files
+    paths:
+      - 'backend/**'
+    types: [opened, synchronize]
    
 jobs:
   sonarqube_scan_be:
