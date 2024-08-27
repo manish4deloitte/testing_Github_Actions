@@ -7,9 +7,6 @@ on:
   push:
     paths:
       - 'backend/**'
-  pull_request:
-    # Run only on changes on these files
-    types: [opened, synchronize]
    
 jobs:
   sonarqube_scan_be:
