@@ -1,10 +1,3 @@
 first line
 this file is for backend testing
 hello
-trigger this time
-test trigger not this time as PR is not available
-trigger BE only this time
-not this time
-trigger this time as changes are made
-
-testing be build
