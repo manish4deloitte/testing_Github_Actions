@@ -1,11 +1,13 @@
 name: Conditional trigger for BE 
 
 on:
+  pull_request:
+    paths:
+      - 'backend/**'
   push:
     paths:
       - 'backend/**'
-  pull_request:
-     types: [opened]
+      
 jobs:
   sonarqube_scan_be:
     runs-on: ubuntu-latest
