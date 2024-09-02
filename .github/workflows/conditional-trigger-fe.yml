@@ -9,7 +9,7 @@ on:
       - 'frontend/**'
       
 jobs:
-  sonarqube_scan_be:
+  sonarqube_scan_fe:
     runs-on: ubuntu-latest
     permissions: read-all
 
