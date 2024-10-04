@@ -3,10 +3,10 @@ name: Conditional trigger for BE
 on:
   pull_request:
     paths:
-      - '/backend/**'
+      - 'backend/**'
   push:
     paths:
-      - '/backend/**'
+      - 'backend/**'
 
 jobs:
   sonarqube_scan_be:
