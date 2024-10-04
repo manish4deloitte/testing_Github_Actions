@@ -3,10 +3,10 @@ name: Conditional trigger for FE
 on:
   pull_request:
     paths:
-      - '/frontend/**'
+      - 'frontend/**'
   push:
     paths:
-      - '/frontend/**'
+      - 'frontend/**'
       
 jobs:
   sonarqube_scan_fe:
